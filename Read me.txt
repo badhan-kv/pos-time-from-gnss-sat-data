@@ -1,0 +1,12 @@
+Main Task: Result in 'gnss_results.csv'
+`position and clock bias calc.py` contains code to calculate the receiver position and clock bias using the provided sp3 and rinex observation files.
+This code uses 'least square' method to use more than four satellite pseudoranges for receiver prosition calculation, 'georinex' library to read rinex and sp3 files. It also uses a seperately wrote python function called 'read_GNSS_data' in 'data_reading.py' to read the data from the relevant files. As a result it calculates receiver position at given epoch using all the available frequencies and saves them in file 'gnss_results.csv'
+______________________________________________________________________________________________________
+
+
+Bonus Task: Result in 'gnss_results_full_day.csv'
+`Bonus.py` contains code for the bonus task. It uses similar to the main task 'least square' method to calculate receiver position. However, it calculates for a period of 24 hours with an interval of 15 minutes. This code first calculates a coarse receiver position using only pseudoranges, and satellite clock biases. The it uses these receiver position to calculate tropospheric and ionospheric delay. And then recalculates the refined receiver position with these delays.
+
+For tropospheric delay, I used a weather data providing service api to get required data at specific epoch at the receiver local time. And used Saastamoinen model. For ionospheric delay I used Klobuchar model with alpha and beta coefficients from the rinex navigation file. I also created elevation and azimuth calculation functions for this task. The functions for ionospheric and tropospheric delay calculations are in the respective python scripts.
+
+Note: The result provided contain results with an interval 480 minutes. This is because the daily limit to request weather data on my account was reached. I can provide the data with 15 min interval tomorrow after the limit is reset. 
