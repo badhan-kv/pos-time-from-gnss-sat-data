@@ -67,7 +67,7 @@ def main():
     latitude = float(f"{lat}")  # Example latitude for Luxembourg
     longitude = float(f"{lon}")  # Example longitude for Luxembourg
     local_time = convert_to_local_time(epoch_time, latitude, longitude)
-    api_key = 'YBCMMAGSU8YPFWHQBUU2PAAAL'
+    api_key = 'XXXXXXXXXXXXXXXXX' #insert your api key here, get one from https://weather.visualcrossing.com
     weather_data = get_weather_data(api_key, latitude, longitude, local_time)
     print(local_time)
     print (location)
